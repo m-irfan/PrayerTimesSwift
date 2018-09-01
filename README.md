@@ -2,9 +2,6 @@
 <img src="https://cloud.githubusercontent.com/assets/4659608/12704381/cc10b62a-c86a-11e5-9624-6cdb12ea1e74.png">
 </p>
 # PrayerTimesSwift
-[![Version](https://img.shields.io/cocoapods/v/PrayerTimesSwift.svg?style=flat)](http://cocoapods.org/pods/PrayerTimesSwift)
-[![License](https://img.shields.io/cocoapods/l/PrayerTimesSwift.svg?style=flat)](http://cocoapods.org/pods/PrayerTimesSwift)
-[![Platform](https://img.shields.io/cocoapods/p/PrayerTimesSwift.svg?style=flat)](http://cocoapods.org/pods/PrayerTimesSwift)
 
 Prayer Times provides a set of handy functions to calculate prayer times for any location around the world, based on a variety of calculation methods currently used in Muslim communities.
 
@@ -15,12 +12,12 @@ You can report any issue on issues page. **Note: If you speak Arabic, you can su
 ## Installation
 
 
-Just add `pod 'PrayerTimesSwift'` to your Podfile and go!
+Just add `pod "PrayerTimesSwift", :git => 'https://github.com/m-irfan/PrayerTimesSwift'` to your Podfile and go!
 PrayerTimesSwift is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "PrayerTimesSwift"
+  pod "PrayerTimesSwift", :git => 'https://github.com/m-irfan/PrayerTimesSwift'
 ```
 
 Then run `pod install`
@@ -77,7 +74,9 @@ myPrayerTime.adjustHighLats = .none
 myPrayerTime.tuneTimes([0,0,0,0,0,0,0])
 ```
 
+## Update
 
+Code updated for swift 4
 
 ## Author
 
