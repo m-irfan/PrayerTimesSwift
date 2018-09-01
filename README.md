@@ -27,10 +27,12 @@ Then run `pod install`
 You will need to create a new instance of `PrayerTime`. Once the instance are configured, you can call `getPrayerTimes()` and it's will return a dictionary. 
 
 ```swift
-let myPrayerTime = PrayerTimes(caculationmethod: .Makkah, asrJuristic: .Shafii, adjustHighLats: .None, timeFormat: .Time12)
-let prayerTimes = myPrayerTime.getPrayerTimes(NSCalendar.currentCalendar(), latitude: 24.7993689, longitude: 
+// EXAMPLE : PAKISTAN LAHORE PRAYER TIMES
+// note: change latitude and longitude and timezone if you want to test your location results
+let prayerTimes = myPrayerTime.getPrayerTimes(date: Calendar.current, latitude: 31.5204, longitude: 74.3587, tZone: 5)
 print(prayerTimes)
-        //["Isha": "06:51 pm", "Maghrib": "05:21 pm", "Sunrise": "05:57 am", "Dhuhr": "11:39 am", "Asr": "02:55 pm", "Sunset": "05:21 pm", "Fajr": "04:38 am"]
+
+//["Fajr": "04:38 am", "Sunrise": "05:57 am", "Dhuhr": "11:39 am", "Asr": "02:55 pm", "Sunset": "05:21 pm", "Maghrib": "05:21 pm", "Isha": "06:51 pm"]
 ```
 
 
