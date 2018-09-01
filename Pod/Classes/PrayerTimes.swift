@@ -140,7 +140,7 @@ public class PrayerTimes{
         dateComponents.year = year
         dateComponents.month = month
         dateComponents.day = day
-        let calendar = NSCalendar.current.date(from: dateComponents)
+        let calendar = Calendar.current.date(from: dateComponents)
         let ms = (calendar?.timeIntervalSince1970)!*1000 // # of milliseconds since midnight Jan 1,
         // 1970
         let days = floor(ms / (1000.0 * 60.0 * 60.0 * 24.0))
@@ -214,7 +214,7 @@ public class PrayerTimes{
     
     // -------------------- Interface Functions --------------------
     // return prayer times for a given date
-    func getDatePrayerTimes(year: Int, month: Int, day: Int, latitude: Double, longitude: Double, tZone: Double) -> Set<String> {
+    func getDatePrayerTimes(year: Int, month: Int, day: Int, latitude: Double, longitude: Double, tZone: Double) -> [String] {
         lat = latitude
         lng = longitude
         timeZone = tZone
@@ -225,11 +225,11 @@ public class PrayerTimes{
     }
     
     // return prayer times for a given date
-    public func getPrayerTimes(date: NSCalendar, latitude: Double, longitude: Double, tZone: Double) -> Set<String> {
+    public func getPrayerTimes(date: Calendar, latitude: Double, longitude: Double, tZone: Double) -> [String] {
         
-        let year = (date.component(NSCalendar.Unit.year, from: Date()))
-        let month = (date.component(NSCalendar.Unit.month, from: Date()))
-        let day = (date.component(NSCalendar.Unit.day, from: Date()))
+        let year = (date.component(Calendar.Component.year, from: Date()))
+        let month = (date.component(Calendar.Component.month, from: Date()))
+        let day = (date.component(Calendar.Component.day, from: Date()))
         
         return getDatePrayerTimes(year: year, month: month, day: day, latitude: latitude, longitude: longitude, tZone: tZone)
     }
@@ -372,7 +372,7 @@ public class PrayerTimes{
         
     }
     // compute prayer times at given julian date
-    func computeDayTimes() -> Set<String> {
+    func computeDayTimes() -> [String] {
         var times: [Double] = [5, 6, 12, 13, 18, 18, 18] // default times
         for _ in 1...numIterations{
             times = computeTimes(times: times)
@@ -411,24 +411,24 @@ public class PrayerTimes{
     }
     
     // convert times array to given time format
-    func adjustTimesFormat(times: [Double]) -> Set<String> {
+    func adjustTimesFormat(times: [Double]) -> [String] {
         
-        var result = Set<String>()
+        var result = [String]()
         
         if (timeFormat == .Floating) {
             for time in times {
-                result.insert(String(time))
+                result.append(String(time))
             }
             return result
         }
         
-        for i in 0 ... 6{
+        for i in 0 ... 6 {
             if (timeFormat == .Time12) {
-                result.insert(floatToTime12(time: times[i], noSuffix: false))
+                result.append(floatToTime12(time: times[i], noSuffix: false))
             } else if (timeFormat == .Time12NS) {
-                result.insert(floatToTime12(time: times[i], noSuffix: true))
+                result.append(floatToTime12(time: times[i], noSuffix: true))
             } else {
-                result.insert(floatToTime24(time: times[i]))
+                result.append(floatToTime24(time: times[i]))
             }
         }
         return result
