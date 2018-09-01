@@ -15,12 +15,12 @@ You can report any issue on issues page. **Note: If you speak Arabic, you can su
 ## Installation
 
 
-Just add `pod 'PrayerTimesSwift'` to your Podfile and go!
+Just add `pod "PrayerTimesSwift", :git => 'https://github.com/m-irfan/PrayerTimesSwift'` to your Podfile and go!
 PrayerTimesSwift is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "PrayerTimesSwift"
+  pod "PrayerTimesSwift", :git => 'https://github.com/m-irfan/PrayerTimesSwift'
 ```
 
 Then run `pod install`
