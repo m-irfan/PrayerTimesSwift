@@ -83,6 +83,10 @@ myPrayerTime.tuneTimes([0,0,0,0,0,0,0])
 
 Abdullah Alhazmy
 
+## Contributer
+
+Irfan Anwar
+
 ## Credits
 [Praytimes](http://praytimes.org)
 
