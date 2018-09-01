@@ -225,11 +225,11 @@ public class PrayerTimes{
     }
     
     // return prayer times for a given date
-    public func getPrayerTimes(date: Calendar, latitude: Double, longitude: Double, tZone: Double) -> [String] {
+    public func getPrayerTimes(date: Date, latitude: Double, longitude: Double, tZone: Double) -> [String] {
         
-        let year = (date.component(Calendar.Component.year, from: Date()))
-        let month = (date.component(Calendar.Component.month, from: Date()))
-        let day = (date.component(Calendar.Component.day, from: Date()))
+        let year = (Calendar.current.component(Calendar.Component.year, from: date))
+        let month = (Calendar.current.component(Calendar.Component.month, from: date))
+        let day = (Calendar.current.component(Calendar.Component.day, from: date))
         
         return getDatePrayerTimes(year: year, month: month, day: day, latitude: latitude, longitude: longitude, tZone: tZone)
     }
